@@ -1,0 +1,23 @@
+.navbar {
+    grid-area: navbar;
+    margin-right: 10px;
+    color: white;
+    background-color: #24abf1;
+}
+
+.navbar__list {
+    margin: 0;
+    padding: 10px;
+    list-style: none;
+}
+
+.navbar__item a {
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.navbar__item a:hover {
+    color: black;
+}

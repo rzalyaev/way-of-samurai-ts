@@ -1,0 +1,7 @@
+.header {
+    grid-area: header;
+    margin-bottom: 10px;
+    min-height: 70px;
+    color: white;
+    background-color: #24abf1;
+}
