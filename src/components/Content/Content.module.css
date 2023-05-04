@@ -2,4 +2,8 @@
     grid-area: content;
     display: flex;
     flex-direction: column;
+    padding: 10px;
+    background-color: #fdfdfe;
+    border: 1px solid rgba(94, 94, 94, 0.3);
+    border-radius: 7px;
 }
