@@ -1,0 +1,43 @@
+.sendMessageForm {
+    flex: 1 1;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+    background-color: #127d96;
+    border-radius: 5px;
+}
+
+.sendMessageForm input {
+    flex: 5 5;
+    height: 100%;
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    background-color: #127d96;
+    font-weight: 500;
+}
+
+.sendMessageForm input:active {
+    border: none;
+}
+
+.sendMessageForm button {
+    flex: 1 1;
+    height: 100%;
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    background-color: #0f516b;
+    font-size: 16px;
+    font-weight: 600;
+    transition: ease-in-out 150ms;
+}
+
+.sendMessageForm button:hover {
+    cursor: pointer;
+    background-color: #053749;
+    transition: background-color ease-in-out 150ms;
+}

@@ -1,0 +1,21 @@
+.users {
+    grid-area: users;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+}
+
+.users a {
+    margin: 5px;
+    padding: 5px 10px;
+    color: white;
+    background-color: #127d96;
+    font-weight: 500;
+    border-radius: 3px;
+    transition: ease-in-out 150ms;
+}
+
+.users a:hover {
+    background-color: #24abf1;
+    transition: background-color ease-in-out 150ms;
+}
