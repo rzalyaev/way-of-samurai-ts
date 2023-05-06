@@ -1,28 +1,37 @@
 import React from "react";
 import styles from "./Messenger.module.css";
-import {NavLink} from "react-router-dom";
+import Contacts from "./Contacts/Contacts";
+import MessagesBlock from "./MessagesBlock/MessagesBlock";
+
+export type ContactType = {
+    id: number
+    name: string
+}
+
+export type MessageType = {
+    id: number
+    text: string
+}
 
 export const Messenger = (props: any) => {
+    const contacts: ContactType[] = [
+        {id: 1, name: 'John'},
+        {id: 2, name: 'Jenifer'},
+        {id: 3, name: 'Brian'},
+        {id: 4, name: 'Paul'},
+        {id: 5, name: 'Rick'},
+    ]
+
+    const messages: MessageType[] = [
+        {id: 1, text: 'How are you?'},
+        {id: 1, text: `I'm fine!`},
+        {id: 1, text: 'Hello!'},
+    ]
+
     return(
         <div className={styles.messenger}>
-            <div className={styles.users}>
-                <NavLink to={'/messenger/1'}>John</NavLink>
-                <NavLink to={'/messenger/2'}>Jenifer</NavLink>
-                <NavLink to={'/messenger/3'}>Brian</NavLink>
-                <NavLink to={'/messenger/4'}>Paul</NavLink>
-                <NavLink to={'/messenger/5'}>Rick</NavLink>
-            </div>
-            <div className={styles.messagesBlock}>
-                <div className={styles.messages}>
-                    <p>How are you?</p>
-                    <p>I'm fine!</p>
-                    <p>Hello!</p>
-                </div>
-                <div className={styles.sendForm}>
-                    <input type="text"/>
-                    <button>Send</button>
-                </div>
-            </div>
+            <Contacts contacts={contacts}/>
+            <MessagesBlock messages={messages}/>
         </div>
     )
 }
