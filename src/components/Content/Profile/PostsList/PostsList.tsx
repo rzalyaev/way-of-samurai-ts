@@ -1,15 +1,18 @@
 import React from "react";
 import styles from "./PostsList.module.css";
-import { Post } from "./Post/Post";
+import {Post} from "./Post/Post";
+import {PostType} from "../../../../redux/state";
 
-export const PostsList = () => {
+type PropsType = {
+    posts: PostType[]
+}
+
+export const PostsList: React.FC<PropsType> = ({posts}) => {
+    const postsElements = posts.map(p => <Post key={p.id} {...p}/>)
+
     return(
         <div>
-            <h3>Posts List Component</h3>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
+            {postsElements}
         </div>
     )
 }
