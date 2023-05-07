@@ -1,9 +1,10 @@
 import React from 'react';
 import './App.css';
 import Header from "./components/Header/Header";
-import { Navbar } from "./components/Navbar/Navbar";
-import { Content } from './components/Content/Content';
+import {Navbar} from "./components/Navbar/Navbar";
+import {Content} from './components/Content/Content';
 import {BrowserRouter} from "react-router-dom";
+import {state} from "./redux/state";
 
 const App = () => {
     return (
@@ -11,12 +12,10 @@ const App = () => {
             <div className="App">
                 <Header/>
                 <Navbar/>
-                <Content/>
+                <Content profile={state.profilePage} messenger={state.messengerPage}/>
             </div>
         </BrowserRouter>
     );
 }
-
-
 
 export default App;
