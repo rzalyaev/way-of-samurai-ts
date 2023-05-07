@@ -2,32 +2,14 @@ import React from "react";
 import styles from "./Messenger.module.css";
 import Contacts from "./Contacts/Contacts";
 import MessagesBlock from "./MessagesBlock/MessagesBlock";
+import {ContactType, MessageType} from "../../../redux/state";
 
-export type ContactType = {
-    id: number
-    name: string
+type PropsType = {
+    contacts: ContactType[]
+    messages: MessageType[]
 }
 
-export type MessageType = {
-    id: number
-    text: string
-}
-
-export const Messenger = (props: any) => {
-    const contacts: ContactType[] = [
-        {id: 1, name: 'John'},
-        {id: 2, name: 'Jenifer'},
-        {id: 3, name: 'Brian'},
-        {id: 4, name: 'Paul'},
-        {id: 5, name: 'Rick'},
-    ]
-
-    const messages: MessageType[] = [
-        {id: 1, text: 'How are you?'},
-        {id: 1, text: `I'm fine!`},
-        {id: 1, text: 'Hello!'},
-    ]
-
+export const Messenger: React.FC<PropsType> = ({contacts, messages}) => {
     return(
         <div className={styles.messenger}>
             <Contacts contacts={contacts}/>
