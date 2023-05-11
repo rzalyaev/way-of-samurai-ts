@@ -8,13 +8,19 @@ import {ProfileInfoType, PostType} from "../../../redux/state";
 type PropsType = {
     info: ProfileInfoType
     posts: PostType[]
+    addPost: (newPostText: string) => void
 }
 
-export const Profile: React.FC<PropsType> = ({info, posts}) => {
+export const Profile: React.FC<PropsType> = (
+    {
+        info,
+        posts,
+        addPost,
+    }) => {
     return(
         <div>
             <ProfileInfo info={info}/>
-            <SendPost/>
+            <SendPost addPost={addPost}/>
             <PostsList posts={posts}/>
         </div>
     )
