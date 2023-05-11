@@ -53,7 +53,7 @@ export const state: RootStateType = {
             {id: 2, text: 'It is my second post.', likes: 0},
             {id: 3, text: 'I love Metallica!', likes: 0},
             {id: 4, text: 'It is raining today.', likes: 0},
-        ]
+        ],
     },
     messengerPage: {
         contacts: [
@@ -69,4 +69,21 @@ export const state: RootStateType = {
             {id: 3, text: `I'm fine!`, time: '09:07'},
         ]
     }
+}
+
+export const addPost = (newPostText: string) => {
+    let newPost = {
+        id: new Date().getTime(),
+        text: newPostText,
+        likes: 0
+    }
+    state.profilePage.posts = [...state.profilePage.posts, newPost];
+    rerenderEntireTree();
+}
+
+let rerenderEntireTree = () => {}
+
+
+export const subscribe = (observer: () => void) => {
+    rerenderEntireTree = observer;
 }
