@@ -11,13 +11,19 @@ import {MessengerPageType, ProfilePageType} from "../../redux/state";
 type PropsType = {
     profile: ProfilePageType
     messenger: MessengerPageType
+    addPost: (newPostText: string) => void
 }
 
-export const Content: React.FC<PropsType> = ({profile, messenger}) => {
+export const Content: React.FC<PropsType> = (
+    {
+        profile,
+        messenger,
+        addPost,
+    }) => {
     return(
         <div className={styles.content}>
             <Route path={'/profile'}
-                   render={() => <Profile info={profile.profileInfo} posts={profile.posts}/>}
+                   render={() => <Profile info={profile.profileInfo} posts={profile.posts} addPost={addPost}/>}
             />
             <Route path={'/messenger'}
                    render={() => <Messenger contacts={messenger.contacts} messages={messenger.messages}/>}
