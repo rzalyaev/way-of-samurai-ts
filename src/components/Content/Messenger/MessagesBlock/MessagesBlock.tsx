@@ -2,18 +2,19 @@ import React from 'react';
 import styles from "./MessagesBlock.module.css";
 import Messages from "./Messages/Messages";
 import SendMessageForm from "./SendMessageForm/SendMessageForm";
-import {MessageType} from "../../../../redux/state";
+import {ActionsTypes, MessageType} from "../../../../redux/state";
 
 
 type PropsType = {
-    messages: MessageType[]
+    messages: MessageType[],
+    dispatch: (action: ActionsTypes) => void,
 }
 
-const MessagesBlock: React.FC<PropsType> = ({messages}) => {
+const MessagesBlock: React.FC<PropsType> = ({messages, dispatch}) => {
     return (
         <div className={styles.messagesBlock}>
             <Messages messages={messages}/>
-            <SendMessageForm/>
+            <SendMessageForm dispatch={dispatch}/>
         </div>
     );
 };
