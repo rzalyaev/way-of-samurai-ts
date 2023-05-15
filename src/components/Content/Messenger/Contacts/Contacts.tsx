@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "./Contacts.module.css";
 import {NavLink} from "react-router-dom";
-import {ContactType} from '../../../../redux/state';
+import {ContactType} from '../../../../redux/store';
 
 
 type PropsType = {

@@ -3,7 +3,7 @@ import styles from "./Profile.module.css";
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
 import {SendPost} from "./SendPost/SendPost";
 import {PostsList} from "./PostsList/PostsList";
-import {ProfileInfoType, PostType, ActionsTypes} from "../../../redux/state";
+import {ProfileInfoType, PostType, ActionsTypes} from "../../../redux/store";
 
 type PropsType = {
     info: ProfileInfoType

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./ProfileInfo.module.css";
-import {ProfileInfoType} from "../../../../redux/state";
+import {ProfileInfoType} from "../../../../redux/store";
 
 type PropsType = {
     info: ProfileInfoType

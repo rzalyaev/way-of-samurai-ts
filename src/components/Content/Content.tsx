@@ -6,7 +6,7 @@ import {Messenger} from "./Messenger/Messenger";
 import {News} from "./News/News";
 import {Music} from "./Music/Music";
 import {Settings} from "./Settings/Settings";
-import {ActionsTypes, MessengerPageType, ProfilePageType} from "../../redux/state";
+import {ActionsTypes, MessengerPageType, ProfilePageType} from "../../redux/store";
 
 type PropsType = {
     profile: ProfilePageType

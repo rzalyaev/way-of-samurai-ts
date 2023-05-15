@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Messenger.module.css";
 import Contacts from "./Contacts/Contacts";
 import MessagesBlock from "./MessagesBlock/MessagesBlock";
-import {ActionsTypes, ContactType, MessageType} from "../../../redux/state";
+import {ActionsTypes, ContactType, MessageType} from "../../../redux/store";
 
 type PropsType = {
     contacts: ContactType[],

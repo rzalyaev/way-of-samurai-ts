@@ -1,6 +1,6 @@
 import React, {ChangeEvent, useState} from "react";
 import styles from "./SendPost.module.css";
-import {ActionsTypes, addPostAC} from "../../../../redux/state";
+import {ActionsTypes, addPostAC} from "../../../../redux/store";
 
 type PropsType = {
     dispatch: (action: ActionsTypes) => void

@@ -2,7 +2,7 @@ import React from 'react';
 import styles from "./MessagesBlock.module.css";
 import Messages from "./Messages/Messages";
 import SendMessageForm from "./SendMessageForm/SendMessageForm";
-import {ActionsTypes, MessageType} from "../../../../redux/state";
+import {ActionsTypes, MessageType} from "../../../../redux/store";
 
 
 type PropsType = {

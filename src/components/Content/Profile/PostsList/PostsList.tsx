@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./PostsList.module.css";
 import {Post} from "./Post/Post";
-import {PostType} from "../../../../redux/state";
+import {PostType} from "../../../../redux/store";
 
 type PropsType = {
     posts: PostType[]

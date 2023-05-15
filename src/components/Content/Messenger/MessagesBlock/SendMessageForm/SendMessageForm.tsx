@@ -1,6 +1,6 @@
 import React, {ChangeEvent, FC, useState} from 'react';
 import styles from "./SendMessageForm.module.css";
-import {ActionsTypes, sendMessageAC} from "../../../../../redux/state";
+import {ActionsTypes, sendMessageAC} from "../../../../../redux/store";
 
 type PropsType = {
     dispatch: (action: ActionsTypes) => void,
