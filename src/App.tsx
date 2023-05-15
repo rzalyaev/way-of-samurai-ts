@@ -1,20 +1,22 @@
-import React from 'react';
+import React, {FC} from 'react';
 import './App.css';
 import Header from "./components/Header/Header";
 import {Navbar} from "./components/Navbar/Navbar";
 import {Content} from './components/Content/Content';
-import {BrowserRouter} from "react-router-dom";
-import {state, addPost} from "./redux/state";
+import {ActionsTypes, RootStateType} from "./redux/state";
 
-const App = () => {
+type PropsType = {
+    state: RootStateType,
+    dispatch: (action: ActionsTypes) => void
+}
+
+const App: FC<PropsType> = ({state, dispatch}) => {
     return (
-        <BrowserRouter>
-            <div className="App">
-                <Header/>
-                <Navbar/>
-                <Content profile={state.profilePage} messenger={state.messengerPage} addPost={addPost}/>
-            </div>
-        </BrowserRouter>
+        <div className="App">
+            <Header/>
+            <Navbar/>
+            <Content profile={state.profilePage} messenger={state.messengerPage} dispatch={dispatch}/>
+        </div>
     );
 }
 
