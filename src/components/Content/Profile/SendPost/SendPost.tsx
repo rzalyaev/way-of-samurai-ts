@@ -1,18 +1,19 @@
 import React, {ChangeEvent, useState} from "react";
 import styles from "./SendPost.module.css";
+import {ActionsTypes, addPostAC} from "../../../../redux/state";
 
 type PropsType = {
-    addPost: (newPostText: string) => void
+    dispatch: (action: ActionsTypes) => void
 }
 
-export const SendPost: React.FC<PropsType> = ({addPost}) => {
+export const SendPost: React.FC<PropsType> = ({dispatch}) => {
     const [postText, setPostText] = useState<string>('');
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setPostText(e.currentTarget.value);
     }
 
     const onClickHandler = () => {
-        addPost(postText);
+        dispatch(addPostAC(postText));
         setPostText('');
     }
 
