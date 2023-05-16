@@ -3,25 +3,23 @@ import styles from "./Profile.module.css";
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
 import {SendPost} from "./SendPost/SendPost";
 import {PostsList} from "./PostsList/PostsList";
-import {ProfileInfoType, PostType, ActionsTypes} from "../../../redux/store";
+import {ActionsTypes, ProfilePageType} from "../../../redux/store";
 
 type PropsType = {
-    info: ProfileInfoType
-    posts: PostType[]
+    profile: ProfilePageType,
     dispatch: (action: ActionsTypes) => void
 }
 
 export const Profile: React.FC<PropsType> = (
     {
-        info,
-        posts,
+        profile,
         dispatch,
     }) => {
     return(
         <div>
-            <ProfileInfo info={info}/>
+            <ProfileInfo info={profile.profileInfo}/>
             <SendPost dispatch={dispatch}/>
-            <PostsList posts={posts}/>
+            <PostsList posts={profile.posts}/>
         </div>
     )
 }
