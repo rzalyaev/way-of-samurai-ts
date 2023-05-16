@@ -6,27 +6,25 @@ import {Messenger} from "./Messenger/Messenger";
 import {News} from "./News/News";
 import {Music} from "./Music/Music";
 import {Settings} from "./Settings/Settings";
-import {ActionsTypes, MessengerPageType, ProfilePageType} from "../../redux/store";
+import {ActionsTypes, RootStateType} from "../../redux/store";
 
 type PropsType = {
-    profile: ProfilePageType
-    messenger: MessengerPageType
+    state: RootStateType
     dispatch: (action: ActionsTypes) => void
 }
 
 export const Content: React.FC<PropsType> = (
     {
-        profile,
-        messenger,
+        state,
         dispatch,
     }) => {
     return(
         <div className={styles.content}>
             <Route path={'/profile'}
-                   render={() => <Profile info={profile.profileInfo} posts={profile.posts} dispatch={dispatch}/>}
+                   render={() => <Profile profile={state.profilePage} dispatch={dispatch}/>}
             />
             <Route path={'/messenger'}
-                   render={() => <Messenger contacts={messenger.contacts} messages={messenger.messages} dispatch={dispatch}/>}
+                   render={() => <Messenger messenger={state.messengerPage} dispatch={dispatch}/>}
             />
             <Route path={'/feed'} component={News}/>
             <Route path={'/music'} component={Music}/>
