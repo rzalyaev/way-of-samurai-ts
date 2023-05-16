@@ -1,6 +1,7 @@
 import React, {ChangeEvent, FC, useState} from 'react';
 import styles from "./SendMessageForm.module.css";
-import {ActionsTypes, sendMessageAC} from "../../../../../redux/store";
+import {ActionsTypes} from "../../../../../redux/store";
+import {sendMessageAC} from "../../../../../redux/messenger-reducer";
 
 type PropsType = {
     dispatch: (action: ActionsTypes) => void,
