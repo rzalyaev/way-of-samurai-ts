@@ -4,7 +4,6 @@ import Messages from "./Messages/Messages";
 import SendMessageForm from "./SendMessageForm/SendMessageForm";
 import {ActionsTypes, MessageType} from "../../../../redux/store";
 
-
 type PropsType = {
     messages: MessageType[],
     dispatch: (action: ActionsTypes) => void,
