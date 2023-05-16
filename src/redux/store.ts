@@ -1,4 +1,7 @@
-// Profile page types
+import {profileReducer, addPostAC} from "./profile-reducer";
+import {messengerReducer, sendMessageAC} from "./messenger-reducer";
+
+// Profile page types --------------------------------------------------------------------------------------------------
 export type LocationType = {
     country: string
     city: string
@@ -18,7 +21,7 @@ export type ProfilePageType = {
     posts: PostType[]
 }
 
-// Messenger page types
+// Messenger page types ------------------------------------------------------------------------------------------------
 export type ContactType = {
     id: number
     name: string
@@ -33,13 +36,16 @@ export type MessengerPageType = {
     messages: MessageType[]
 }
 
+// State type ----------------------------------------------------------------------------------------------------------
 export type RootStateType = {
     profilePage: ProfilePageType
     messengerPage: MessengerPageType
 }
 
+// Actions types -------------------------------------------------------------------------------------------------------
 export type ActionsTypes = ReturnType<typeof addPostAC> | ReturnType<typeof sendMessageAC>
 
+// Store type ----------------------------------------------------------------------------------------------------------
 export type StoreType = {
     _state: RootStateType,
     getState: () => RootStateType,
@@ -47,9 +53,6 @@ export type StoreType = {
     subscribe: (callback: (state: RootStateType) => void) => void,
     dispatch: (action: ActionsTypes) => void
 }
-
-const ADD_POST = 'ADD-POST';
-const SEND_MESSAGE = 'SEND_MESSAGE';
 
 let store: StoreType = {
     _state: {
@@ -87,34 +90,15 @@ let store: StoreType = {
     getState() {
       return this._state;
     },
-    _callSubscriber(state: RootStateType) {
-        console.log(`Rerender entire tree`);
-    },
+    _callSubscriber(state: RootStateType) {},
     subscribe(observer: (state: RootStateType) => void) {
         this._callSubscriber = observer;
     },
     dispatch(action) {
-            if (action.type === ADD_POST) {
-                let newPost = {
-                    id: new Date().getTime(),
-                    text: action.newPostText,
-                    likes: 0
-                }
-                this._state.profilePage.posts = [...this._state.profilePage.posts, newPost];
-                this._callSubscriber(this._state);
-            } else if (action.type === SEND_MESSAGE) {
-                let newMessage = {
-                    id: 5,
-                    text: action.newMessageText,
-                    time: '10:42'
-                }
-                this._state.messengerPage.messages = [...this._state.messengerPage.messages, newMessage]
-                this._callSubscriber(this._state);
-            }
+        this._state.profilePage =  profileReducer(this._state.profilePage, action);
+        this._state.messengerPage =  messengerReducer(this._state.messengerPage, action);
+        this._callSubscriber(this._state);
     }
 }
-
-export const addPostAC = (text: string) => ({type: ADD_POST, newPostText: text} as const);
-export const sendMessageAC = (text: string) => ({type: SEND_MESSAGE, newMessageText: text} as const)
 
 export default store;
