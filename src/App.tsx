@@ -15,7 +15,7 @@ const App: FC<PropsType> = ({state, dispatch}) => {
         <div className="App">
             <Header/>
             <Navbar/>
-            <Content profile={state.profilePage} messenger={state.messengerPage} dispatch={dispatch}/>
+            <Content state={state} dispatch={dispatch}/>
         </div>
     );
 }
