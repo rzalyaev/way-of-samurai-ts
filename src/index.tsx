@@ -13,4 +13,4 @@ const rerenderEntireTree = (state: RootStateType) => ReactDOM.render(
 
 rerenderEntireTree(store.getState());
 
-store.subscribe(rerenderEntireTree);
+store.subscribe(() => rerenderEntireTree(store.getState()));
