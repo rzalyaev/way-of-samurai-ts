@@ -1,13 +1,14 @@
-import React, {ChangeEvent, useState} from 'react';
-import {ActionsTypes} from '../../../../redux/store';
+import React, {ChangeEvent, useContext, useState} from 'react';
 import {addPostAC} from '../../../../redux/profile-reducer';
-import SendPost from "./SendPost";
+import SendPost from './SendPost';
+import {StoreDispatchContext} from '../../../../redux/redux-store';
 
-type PropsType = {
-    dispatch: (action: ActionsTypes) => void
-}
+const SendPostContainer = () => {
+    const dispatch = useContext(StoreDispatchContext);
+    if (!dispatch) {
+        throw new Error('useContext must be used within a MyContext.Provider');
+    }
 
-const SendPostContainer = ({dispatch}: PropsType) => {
     const [postText, setPostText] = useState<string>('');
 
     const changePostText = (e: ChangeEvent<HTMLInputElement>) => setPostText(e.currentTarget.value);
