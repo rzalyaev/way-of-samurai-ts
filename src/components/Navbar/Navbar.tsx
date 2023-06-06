@@ -1,8 +1,8 @@
-import React from "react";
-import styles from "./Navbar.module.css";
-import {NavLink} from "react-router-dom";
+import React from 'react';
+import styles from './Navbar.module.css';
+import {NavLink} from 'react-router-dom';
 
-export const Navbar = () => {
+const Navbar = () => {
     return(
         <div className={styles.navbar}>
             <ul className={styles.navbar__list}>
@@ -23,5 +23,7 @@ export const Navbar = () => {
                 </li>
             </ul>
         </div>
-    )
-}
+    );
+};
+
+export default Navbar;

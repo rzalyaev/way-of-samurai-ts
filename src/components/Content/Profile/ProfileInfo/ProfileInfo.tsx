@@ -1,12 +1,12 @@
-import React from "react";
-import styles from "./ProfileInfo.module.css";
-import {ProfileInfoType} from "../../../../redux/store";
+import React from 'react';
+import styles from './ProfileInfo.module.css';
+import {ProfileInfoType} from '../../../../redux/store';
 
 type PropsType = {
     info: ProfileInfoType
 }
 
-export const ProfileInfo: React.FC<PropsType> = ({info}) => {
+const ProfileInfo = ({info}: PropsType) => {
     return(
         <div>
             <h3>Profile Info Component</h3>
@@ -19,5 +19,7 @@ export const ProfileInfo: React.FC<PropsType> = ({info}) => {
                 </ul>
             </div>
         </div>
-    )
-}
+    );
+};
+
+export default ProfileInfo;

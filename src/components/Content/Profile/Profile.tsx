@@ -1,25 +1,23 @@
-import React from "react";
-import styles from "./Profile.module.css";
-import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
-import {SendPost} from "./SendPost/SendPost";
-import {PostsList} from "./PostsList/PostsList";
-import {ActionsTypes, ProfilePageType} from "../../../redux/store";
+import React from 'react';
+import styles from './Profile.module.css';
+import {ActionsTypes, ProfilePageType} from '../../../redux/store';
+import ProfileInfo from './ProfileInfo/ProfileInfo';
+import SendPostContainer from './SendPost/SendPostContainer';
+import PostsList from './PostsList/PostsList';
 
 type PropsType = {
     profile: ProfilePageType,
     dispatch: (action: ActionsTypes) => void
 }
 
-export const Profile: React.FC<PropsType> = (
-    {
-        profile,
-        dispatch,
-    }) => {
+const Profile = ({profile, dispatch}: PropsType) => {
     return(
         <div>
             <ProfileInfo info={profile.profileInfo}/>
-            <SendPost dispatch={dispatch}/>
+            <SendPostContainer dispatch={dispatch}/>
             <PostsList posts={profile.posts}/>
         </div>
-    )
-}
+    );
+};
+
+export default Profile;
