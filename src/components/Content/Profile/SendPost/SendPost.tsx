@@ -1,28 +1,23 @@
-import React, {ChangeEvent, useState} from "react";
-import styles from "./SendPost.module.css";
-import {ActionsTypes} from "../../../../redux/store";
-import {addPostAC} from "../../../../redux/profile-reducer";
+import React, {ChangeEvent} from 'react';
+import styles from './SendPost.module.css';
 
 type PropsType = {
-    dispatch: (action: ActionsTypes) => void
+    postText: string
+    changePostText: (e: ChangeEvent<HTMLInputElement>) => void
+    addPost: () => void
 }
 
-export const SendPost: React.FC<PropsType> = ({dispatch}) => {
-    const [postText, setPostText] = useState<string>('');
-    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setPostText(e.currentTarget.value);
-    }
-
-    const onClickHandler = () => {
-        dispatch(addPostAC(postText));
-        setPostText('');
-    }
+const SendPost = ({postText, changePostText, addPost}: PropsType) => {
+    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => changePostText(e);
+    const handleButtonClick = () => addPost();
 
     return(
         <div>
             <h3>Send Post Component</h3>
-            <input type="textarea" value={postText} onChange={onChangeHandler}/>
-            <button onClick={onClickHandler}>Send Post</button>
+            <input type="textarea" value={postText} onChange={handleInputChange}/>
+            <button onClick={handleButtonClick}>Send Post</button>
         </div>
-    )
-}
+    );
+};
+
+export default SendPost;
