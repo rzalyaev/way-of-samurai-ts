@@ -1,28 +1,20 @@
-import React, {ChangeEvent, FC, useState} from 'react';
-import styles from "./SendMessageForm.module.css";
-import {ActionsTypes} from "../../../../../redux/store";
-import {sendMessageAC} from "../../../../../redux/messenger-reducer";
+import React, {ChangeEvent} from 'react';
+import styles from './SendMessageForm.module.css';
 
 type PropsType = {
-    dispatch: (action: ActionsTypes) => void,
+    messageText: string
+    changeMessageText: (e: ChangeEvent<HTMLInputElement>) => void
+    sendMessage: () => void
 }
 
-const SendMessageForm: FC<PropsType> = ({dispatch}) => {
-    const [messageText, setMessageText] = useState<string>('');
-
-    const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setMessageText(e.currentTarget.value);
-    }
-
-    const handleOnClick = () => {
-        dispatch(sendMessageAC(messageText));
-        setMessageText('');
-    }
+const SendMessageForm = ({messageText, changeMessageText, sendMessage}: PropsType) => {
+    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => changeMessageText(e);
+    const handleButtonClick = () => sendMessage();
 
     return (
         <div className={styles.sendMessageForm}>
-            <input type="text" value={messageText} onChange={handleOnChange}/>
-            <button onClick={handleOnClick}>Send</button>
+            <input type="text" value={messageText} onChange={handleInputChange}/>
+            <button onClick={handleButtonClick}>Send</button>
         </div>
     );
 };
