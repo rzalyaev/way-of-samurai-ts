@@ -2,7 +2,7 @@ import {ActionsTypes, ProfilePageType} from "./store";
 
 const ADD_POST = 'ADD-POST';
 
-const initialState = {
+const initialState: ProfilePageType = {
     profileInfo: {
         name: 'Ruslan',
         status: 'I love coding!',
