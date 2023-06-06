@@ -2,7 +2,7 @@ import {ActionsTypes, MessengerPageType} from "./store";
 
 const SEND_MESSAGE = 'SEND_MESSAGE';
 
-const initialState = {
+const initialState: MessengerPageType = {
     contacts: [
         {id: 1, name: 'John'},
         {id: 2, name: 'Jenifer'},
@@ -31,4 +31,4 @@ export const messengerReducer = (state: MessengerPageType = initialState, action
     }
 }
 
-export const sendMessageAC = (text: string) => ({type: SEND_MESSAGE, newMessageText: text} as const)
+export const sendMessageAC = (text: string) => ({type: SEND_MESSAGE, newMessageText: text} as const);
