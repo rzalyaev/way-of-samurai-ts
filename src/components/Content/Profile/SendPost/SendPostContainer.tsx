@@ -1,13 +1,10 @@
-import React, {ChangeEvent, useContext, useState} from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import {addPostAC} from '../../../../redux/profile-reducer';
 import SendPost from './SendPost';
-import {StoreDispatchContext} from '../../../../redux/redux-store';
+import {useDispatch} from "react-redux";
 
 const SendPostContainer = () => {
-    const dispatch = useContext(StoreDispatchContext);
-    if (!dispatch) {
-        throw new Error('useContext must be used within a MyContext.Provider');
-    }
+    const dispatch = useDispatch();
 
     const [postText, setPostText] = useState<string>('');
 
