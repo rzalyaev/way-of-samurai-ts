@@ -11,10 +11,10 @@ const Content = () => {
     return(
         <div className={styles.content}>
             <Route path={'/profile'}
-                   render={() => <Profile profile={state.profilePage}/>}
+                   render={() => <Profile/>}
             />
             <Route path={'/messenger'}
-                   render={() => <Messenger messenger={state.messengerPage}/>}
+                   render={() => <Messenger/>}
             />
             <Route path={'/feed'} component={News}/>
             <Route path={'/music'} component={Music}/>
