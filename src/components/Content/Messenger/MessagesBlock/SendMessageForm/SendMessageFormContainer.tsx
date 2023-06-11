@@ -1,13 +1,10 @@
-import React, {ChangeEvent, useContext, useState} from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import {sendMessageAC} from '../../../../../redux/messenger-reducer';
 import SendMessageForm from './SendMessageForm';
-import {StoreDispatchContext} from '../../../../../redux/redux-store';
+import {useDispatch} from "react-redux";
 
 const SendMessageFormContainer = () => {
-    const dispatch = useContext(StoreDispatchContext);
-    if (!dispatch) {
-        throw new Error('useContext must be used within a MyContext.Provider');
-    }
+    const dispatch = useDispatch();
 
     const [messageText, setMessageText] = useState<string>('');
 
