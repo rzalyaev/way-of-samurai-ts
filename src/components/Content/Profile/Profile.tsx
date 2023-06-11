@@ -1,15 +1,14 @@
 import React from 'react';
 import styles from './Profile.module.css';
-import {ProfilePageType} from '../../../redux/store';
+import {RootStateType} from '../../../redux/store';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 import SendPostContainer from './SendPost/SendPostContainer';
 import PostsList from './PostsList/PostsList';
+import {useSelector} from "react-redux";
 
-type PropsType = {
-    profile: ProfilePageType
-}
+const Profile = () => {
+    const profile = useSelector((state: RootStateType) => state.profilePage);
 
-const Profile = ({profile}: PropsType) => {
     return(
         <div>
             <ProfileInfo info={profile.profileInfo}/>
