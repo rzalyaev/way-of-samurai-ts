@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import styles from './Content.module.css';
 import {Route} from 'react-router-dom';
 import Profile from './Profile/Profile';
@@ -6,14 +6,8 @@ import Messenger from './Messenger/Messenger';
 import News from './News/News';
 import Music from './Music/Music';
 import Settings from './Settings/Settings';
-import {StoreContext} from '../../redux/redux-store';
 
 const Content = () => {
-    const state = useContext(StoreContext);
-    if (!state) {
-        throw new Error('useContext must be used within a MyContext.Provider');
-    }
-
     return(
         <div className={styles.content}>
             <Route path={'/profile'}
